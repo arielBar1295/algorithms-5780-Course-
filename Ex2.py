@@ -7,9 +7,9 @@ def isParetoImprovement(agents:List[Agent],option1:int,option2:int)->bool:
   if x.value(option1)<x.value(option2):
    return False
  return True
- #for every option we call isParetoImprovement and check if the specific option from the array is a Pareto Improvement of the option we got as a parameter,if it is, we can immediately say that the option we got as a parameter is not Pareto Optimal
- def isParetoOptimal(agents:List[Agent],option:int,allOption:List[int])->bool:
-  for x in allOption:
-   if isParetoImprovement(agents,x,option):
-    return False
-  return True
+#for every option we call isParetoImprovement and check if the specific option from the array is a Pareto Improvement of the option we got as a parameter,if it is, we can immediately say that the option we got as a parameter is not Pareto Optimal
+def isParetoOptimal(agents:List[Agent],option:int,allOption:List[int])->bool:
+ for x in allOption:
+  if isParetoImprovement(agents,x,option):
+   return False
+ return True
