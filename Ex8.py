@@ -5,27 +5,27 @@ import itertools, collections
 #dictPlayer = collections.defaultdict(float)
 player_dict={"a" : 10,
             "b" : 15,
-			"c" : 25,
-			"ab" : 20,
-			"ac" : 25,
-			"bc" : 30,
-			"abc" : 37
+	    "c" : 25,
+	    "ab" : 20,
+	    "ac" : 25,
+	    "bc" : 30,
+	    "abc" : 37
 }
-player_dict2={"a" : 10,
-            "b" : 15,
-			"c" : 0,
-			"ab" : 20,
-			"ac" : 10,
-			"bc" : 15,
-			"abc" : 20
+player_dict2={ "a" : 10,
+               "b" : 15,
+	       "c" : 0,
+	      "ab" : 20,
+	      "ac" : 10,
+	      "bc" : 15,
+	     "abc" : 20
 }
 
 airport_problem= {
-	"":	  0,
-	"a":  1,
-	"b":  2,
-	"c":  3,
-	"d":  4,
+   "":	0,
+  "a":  1,
+  "b":  2,
+  "c":  3,
+  "d":  4,
   "1":  5,
   "2":  6,
   "3":  7,
