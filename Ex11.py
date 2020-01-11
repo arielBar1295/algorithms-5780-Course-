@@ -1,6 +1,9 @@
 from typing import List
 import networkx as nx
 
+#quuestion number 3
+#made by Ariel Bar and Dana Morhaim
+
 """
 The example module checks the change shifting function
 The example is from: https://www.hamichlol.org.il/%D7%9E%D7%A2%D7%92%D7%9C%D7%99_%D7%A1%D7%97%D7%A8_%D7%A2%D7%9C%D7%99%D7%95%D7%A0%D7%99%D7%9D
