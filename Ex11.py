@@ -40,30 +40,33 @@ class Worker:
 def build_graph(workers):
     G = nx.DiGraph()
     for worker in workers:
-        for shift in worker.preferences:
-            G.add_edge(worker.name,shift)
-        G.add_edge(worker.current_shift,worker.name)
+        G.add_edge(worker.name, worker.preferences[0])
+        G.add_edge(worker.current_shift, worker.name)
     return G
 
 
-def exchange_shifts (workers: List[Worker]):
-    G = nx.DiGraph()
-    G = build_graph(workers)
 
-    #[(3, 'c', 'forward')]
-    while G.edges:
+def exchange_shifts (workers: List[Worker]):
+
+    while workers:
+        G = nx.DiGraph()
+        G = build_graph(workers)
         # find the cycle in the graph
         changes = list(nx.find_cycle(G, orientation='ignore'))
+        # [(3, 'c', 'forward')]
         for change in changes:
 
             if(type(change[0]) == str):
                 currentShift = find_shift(workers, change[0])
                 print(str(change[0]) + " moves from shift " +str(currentShift) +" to Shift " + str(change[1]))
-            # remove the nodes that were found in the cycle
-            if (G.has_node(change[0])):
-                G.remove_node(change[0])
-            if (G.has_node(change[1])):
-                G.remove_node(change[1])
+                #remove worker
+                workers=update_workers(workers, change[0])
+                #remove this shift from al preferances
+                update_preferances(workers, change[1])
+                # remove the nodes that were found in the cycle
+
+
+
 
 #this function returns the current shift of the worker
 def find_shift(workers: List[Worker], workerName):
@@ -71,6 +74,18 @@ def find_shift(workers: List[Worker], workerName):
         if worker.name==workerName:
             return worker.current_shift
 
+#remove the taken shifts
+def update_preferances(workers: List[Worker], shiftNum):
+    for worker in workers:
+        for pref in worker.preferences:
+            if pref==shiftNum:
+                worker.preferences.remove(pref)
+#remove worker from workers list
+def update_workers(workers: List[Worker], workerName):
+    for worker in workers:
+        if worker.name==workerName:
+            workers.remove(worker)
+    return  workers
 
 if __name__ == "__main__":
     import doctest
