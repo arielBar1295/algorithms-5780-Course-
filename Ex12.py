@@ -1,5 +1,6 @@
 #quuestion number 2
 #made by Ariel Bar and Dana Morhaim
+
 import networkx as nx
 def addWeight(graph , dict):
   for edge in graph.edges :
@@ -40,6 +41,12 @@ def algo(graph , dict) :
 >>> G2.add_edge('4','7')
 >>> algo(G2, dict2)
 {('3', '2'), ('7', '4')}
+>>> G3=nx.Graph()
+>>> G3.add_edge('1','5')
+>>> G3.add_edge('5','6')
+>>> G3.add_edge('2','6')
+>>> nx.max_weight_matching(G3)
+{('1', '5'), ('2', '6')}
     """
   graph = addWeight(graph , dict)
   max_match=nx.max_weight_matching(graph)
