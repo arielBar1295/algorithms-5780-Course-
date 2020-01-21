@@ -1,4 +1,5 @@
-
+#quuestion number 2
+#made by Ariel Bar and Dana Morhaim
 import networkx as nx
 def addWeight(graph , dict):
   for edge in graph.edges :
