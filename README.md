@@ -1,1 +1,1 @@
-financial algorithms course
+economic algorithms course
