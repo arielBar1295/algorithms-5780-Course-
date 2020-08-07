@@ -1,1 +1,1 @@
-# algorithms-5780-Course-
+financial algorithms course
